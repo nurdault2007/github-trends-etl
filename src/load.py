@@ -11,7 +11,7 @@ def load_data_to_postgres(csv_file):
     df = pd.read_csv(csv_file)
     
     print("Connecting to PostgreSQL...")
-    engine = create_engine('postgresql://etl_user:12345@localhost:5432/github_etl')
+    engine = create_engine('postgresql://username:password@localhost:5432/dbname')
     
     print("Uploading data to db...")
     df.to_sql(name='trending_repos', con=engine, if_exists='replace', index=False)

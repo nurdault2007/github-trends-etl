@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import os
 
 def export_to_csv():
-    engine = create_engine('postgresql://etl_user:12345@localhost:5432/github_etl')
+    engine = create_engine('postgresql://username:password@localhost:5432/dbname')
     query = "SELECT * FROM trending_repos ORDER BY stars DESC;"
     df = pd.read_sql(query, con=engine)
     output_dir = "data/processed"
